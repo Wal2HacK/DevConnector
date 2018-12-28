@@ -2,6 +2,7 @@ let express = require('express')
 let mongoose = require('mongoose')
 
 let users = require('./routes/api/users')
+let posts = require('./routes/api/posts')
 
 let app = express()
 
@@ -15,6 +16,7 @@ mongoose.connect(db,{useNewUrlParser :true })
 
 // Use Routes
 app.use('/api/users', users)
+app.use('/api/posts', posts)
 
 let port = process.env.PORT || 5000
 app.listen(port,()=>console.log(`Server Running on PORT ${port}`))
